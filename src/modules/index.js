@@ -1,9 +1,9 @@
-import Particle from "../classes/particle.js";
-import createParticleSVG from "./createSVG.js";
+import createParticle from "./createParticle.js";
 
-const viewPort = document.querySelector('#view')
+const particles = [];
+const viewPort = document.querySelector('#viewPort');
 
-const svg = createParticleSVG(10);
-
-viewPort.appendChild(svg);
-
+viewPort.addEventListener('click', (e) => {
+    particles.push(createParticle(e, 10));
+    console.log(particles);
+});

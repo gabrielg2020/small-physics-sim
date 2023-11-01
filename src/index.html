@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>small physics sim</title>
     <link rel="stylesheet" href="/dist/output.css">
-    <script type="module" src="modules/index.js"></script>
+    <!-- classes -->
     <script type="module" src="classes/particle.js"></script>
-    <script type="module" src="modules/createSVG.js"></script>
+    <!-- modules -->
+    <script type="module" src="modules/index.js"></script>
+    <script type="module" src="modules/createParticle.js"></script>
 </head>
 <body>
     <div class="grid grid-cols-5 h-screen">
@@ -15,7 +17,7 @@
 
         </div>
 
-        <div id="view" class="bg-zinc-900 col-span-4">
+        <div id="viewPort" class="bg-zinc-900 col-span-4">
 
         </div>
     </div>
