@@ -559,3 +559,7 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
+
+svg {
+  width: 100%;
+}
