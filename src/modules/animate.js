@@ -1,6 +1,9 @@
-function animate (particles) {
+function animate(particles) {
+    const currentTime = window.performance.now();
     particles.forEach(particle => {
-        particle.setPosition([particle.x + 10 ,particle.y]);
+        const deltaTime = (currentTime - particle.getTime()) / 1000;
+        console.log(currentTime);
+        particle.setPosition([(particle.x + 20 * deltaTime), particle.y]);
     });
 
     requestAnimationFrame(() => animate(particles));
