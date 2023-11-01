@@ -1,9 +1,9 @@
 class Particle {
-    constructor(x, y, mass) {
+    constructor(x, y, mass, circle) {
         this.x = x;
         this.y = y;
         this.mass = mass;
-        this.svg = undefined;
+        this.circle = circle;
         // need to create svg for particle
     }
 
@@ -15,8 +15,8 @@ class Particle {
         return this.mass;
     }
 
-    getSVG() {
-        return this.svg;
+    getCircle() {
+        return this.circle;
     }
 }
 
