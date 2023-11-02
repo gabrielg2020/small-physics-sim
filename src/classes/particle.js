@@ -4,7 +4,7 @@ class Particle {
         this.y = 0;
         this.vx = 0;
         this.vy = 0;
-        this.mass = 0;
+        this.radius = 0;
         this.circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         this.updateCircle();
     }
@@ -28,19 +28,19 @@ class Particle {
         return [this.vx, this.vy];
     }
 
-    setMass(mass) {
-        this.mass = mass;
+    setRadius(radius) {
+        this.radius = radius;
         this.updateCircle();
     }
 
-    getMass() {
-        return this.mass;
+    getRadius() {
+        return this.radius;
     }
 
     updateCircle() {
         this.circle.setAttribute('cx', this.x);
         this.circle.setAttribute('cy', this.y);
-        this.circle.setAttribute('r', this.mass);
+        this.circle.setAttribute('r', this.radius);
         this.circle.setAttribute('fill', 'white');
     }
 

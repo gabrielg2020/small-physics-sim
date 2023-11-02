@@ -13,10 +13,9 @@ function animate(particles) {
         // bounds checking
         const canvasSize = canvas.getBoundingClientRect();
 
-        if (particle.x < 0 || particle.x > canvasSize.width ||
-            particle.y < 0 || particle.y > canvasSize.height) {
-            // flip the velocity vectors
+        if (particle.x < 0 || particle.x > canvasSize.width) {
             particle.vx = particle.vx * -1;
+        } else if (particle.y < 0 || particle.y > canvasSize.height){
             particle.vy = particle.vy * -1;
         }
 
