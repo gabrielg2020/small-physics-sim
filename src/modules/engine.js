@@ -1,12 +1,13 @@
 import { a } from "../global.js";
 
-export function calcParticleDisplacement(particle, deltaTime) {
+export function calcParticlePosition(particle, deltaTime) {
     const velocity = particle.getVelocity();
+    const position = particle.getPosition();
 
-    const displacementX = (velocity[0] * deltaTime) + ((a[0] / 2) * deltaTime**2);
-    const displacementY = (velocity[1] * deltaTime) + ((a[1] / 2) * deltaTime**2);
+    const positionX = position[0] + (velocity[0] * deltaTime);
+    const positionY = position[1] + (velocity[1] * deltaTime);
 
-    return [displacementX, displacementY];
+    return [positionX, positionY];
 }
 
 export function calcParticleVelocity(particle, deltaTime) {

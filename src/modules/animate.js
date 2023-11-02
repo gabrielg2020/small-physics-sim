@@ -1,24 +1,23 @@
-import { viewPort } from "../global.js";
-import { calcParticleDisplacement, calcParticleVelocity } from "./engine.js";
+import { canvas } from "../global.js";
+import { calcParticlePosition, calcParticleVelocity } from "./engine.js";
 
 function animate(particles) {
-    const currentTime = window.performance.now();
-    particles.forEach((particle, index) => {
-        const deltaTime = (currentTime - particle.getTime()) / 1000;
-        const position = particle.getPosition();
-        
-        const displacement = calcParticleDisplacement(particle, deltaTime);
-        particle.setPosition(position.map((element, index) => element + displacement[index]));
+    particles.forEach((particle) => {
+        const deltaTime = 1/60
+        const nextFramePosition = calcParticlePosition(particle, deltaTime);
+        particle.setPosition(nextFramePosition);
 
-        const velocity = calcParticleVelocity(particle, deltaTime);
-        particle.setVelocity(velocity);
+        const nextFrameVelocity = calcParticleVelocity(particle, deltaTime);
+        particle.setVelocity(nextFrameVelocity);
 
-        if (particle.x < 0 || particle.x > viewPort.clientWidth ||
-            particle.y < 0 || particle.y > viewPort.clientHeight) {
-            particles.splice(index, 1);
-            particle.getCircle().remove();
+        // bounds checking
+        const canvasSize = canvas.getBoundingClientRect();
 
-            console.log(particles);
+        if (particle.x < 0 || particle.x > canvasSize.width ||
+            particle.y < 0 || particle.y > canvasSize.height) {
+            // flip the velocity vectors
+            particle.vx = particle.vx * -1;
+            particle.vy = particle.vy * -1;
         }
 
     });

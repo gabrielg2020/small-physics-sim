@@ -6,6 +6,7 @@ function createParticle (e, mass) {
     const newParticle = new Particle()
 
     newParticle.setPosition([e.clientX - viewPortRect.left, e.clientY - viewPortRect.top]);
+    console.log(e.clientX - viewPortRect.left, e.clientY - viewPortRect.top)
     newParticle.setMass(mass);
 
     return newParticle;

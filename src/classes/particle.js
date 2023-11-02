@@ -5,7 +5,6 @@ class Particle {
         this.vx = 0;
         this.vy = 0;
         this.mass = 0;
-        this.timeSpawned = window.performance.now();
         this.circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         this.updateCircle();
     }
@@ -36,10 +35,6 @@ class Particle {
 
     getMass() {
         return this.mass;
-    }
-
-    getTime() {
-        return this.timeSpawned;
     }
 
     updateCircle() {
