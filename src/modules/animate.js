@@ -1,5 +1,5 @@
 import { canvas } from "../global.js";
-import { calcParticlePosition, calcParticleVelocity } from "./engine.js";
+import { calcParticlePosition, calcParticleVelocity, checkPlaneParticleCollision } from "./engine.js";
 
 function animate(particles) {
     particles.forEach((particle) => {
@@ -10,15 +10,7 @@ function animate(particles) {
         const nextFrameVelocity = calcParticleVelocity(particle, deltaTime);
         particle.setVelocity(nextFrameVelocity);
 
-        // bounds checking
-        const canvasSize = canvas.getBoundingClientRect();
-
-        if (particle.x < 0 || particle.x > canvasSize.width) {
-            particle.vx = particle.vx * -1;
-        } else if (particle.y < 0 || particle.y > canvasSize.height){
-            particle.vy = particle.vy * -1;
-        }
-
+        checkPlaneParticleCollision(canvas, particle);
     });
 
     requestAnimationFrame(() => animate(particles));
