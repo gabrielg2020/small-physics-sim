@@ -2,8 +2,8 @@ class Particle {
     constructor() {
         this.x = 0;
         this.y = 0;
-        this.vx = 0;
-        this.vy = 0;
+        this.vx = 300;
+        this.vy = 300;
         this.mass = 0;
         this.circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         this.updateCircle();
