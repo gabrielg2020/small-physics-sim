@@ -12,8 +12,6 @@ function animate(particles) {
         particle.setPosition(nextFramePosition);
 
         checkPlaneParticleCollision(canvas, particle);
-
-        console.log(particle.getAcceleration());
     });
 
     requestAnimationFrame(() => animate(particles));

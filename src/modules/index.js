@@ -7,7 +7,8 @@ const particles = [];
 animate(particles);
 
 canvas.addEventListener('click', (e) => {
-    const mass = Number(massInput.value);
+    const mass = Number(massInput);
+    console.log(mass);
     const newParticle = createParticle(e, mass);
     particles.push(newParticle);
     viewPort.appendChild(newParticle.getCircle());
