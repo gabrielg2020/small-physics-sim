@@ -1,4 +1,5 @@
-import { canvas, massInput, viewPort } from "../global.js";
+import { canvas, viewPort } from "../global.js";
+import { massInput } from "./ui.js";
 import animate from "./animate.js";
 import createParticle from "./createParticle.js";
 

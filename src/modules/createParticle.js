@@ -1,4 +1,5 @@
-import { accelerationInput, velocityInput, viewPort } from "../global.js";
+import { viewPort } from "../global.js";
+import { velocityInput, accelerationInput } from "./ui.js";
 import Particle from "../classes/particle.js";
 
 function createParticle (e, mass) {
