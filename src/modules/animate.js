@@ -4,13 +4,16 @@ import { calcParticlePosition, calcParticleVelocity, checkPlaneParticleCollision
 function animate(particles) {
     particles.forEach((particle) => {
         const deltaTime = 1/60
-        const nextFramePosition = calcParticlePosition(particle, deltaTime);
-        particle.setPosition(nextFramePosition);
 
         const nextFrameVelocity = calcParticleVelocity(particle, deltaTime);
         particle.setVelocity(nextFrameVelocity);
 
+        const nextFramePosition = calcParticlePosition(particle, deltaTime);
+        particle.setPosition(nextFramePosition);
+
         checkPlaneParticleCollision(canvas, particle);
+
+        console.log(particle.getAcceleration());
     });
 
     requestAnimationFrame(() => animate(particles));

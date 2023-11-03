@@ -2,8 +2,10 @@ class Particle {
     constructor() {
         this.x = 0;
         this.y = 0;
-        this.vx = 300;
-        this.vy = 300;
+        this.vx = 0;
+        this.vy = 0;
+        this.ax = 0;
+        this.ay = 0
         this.mass = 0;
         this.circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         this.updateCircle();
@@ -26,6 +28,15 @@ class Particle {
 
     getVelocity() {
         return [this.vx, this.vy];
+    }
+
+    setAcceleration(acc) {
+        this.ax = acc[0];
+        this.ay = acc[1];
+    }
+
+    getAcceleration() {
+        return [this.ax, this.ay];
     }
 
     setMass(mass) {

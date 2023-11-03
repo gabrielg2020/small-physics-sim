@@ -1,4 +1,4 @@
-import { velocityInput, viewPort } from "../global.js";
+import { accelerationInput, velocityInput, viewPort } from "../global.js";
 import Particle from "../classes/particle.js";
 
 function createParticle (e, mass) {
@@ -7,6 +7,7 @@ function createParticle (e, mass) {
 
     newParticle.setPosition([e.clientX - viewPortRect.left, e.clientY - viewPortRect.top]);
     newParticle.setVelocity(velocityInput);
+    newParticle.setAcceleration(accelerationInput);
     newParticle.setMass(mass);
 
     return newParticle;

@@ -3,7 +3,7 @@ export const canvas = document.querySelector('#canvas');
 export const massInput = document.querySelector('#massInput');
 export const velocityInput = [0,0];
 
-export const a = [0, 9.81];
+export const accelerationInput = [0, 9.81];
 
 // UI changes
 const massUI = document.querySelector('#massUI')
@@ -18,5 +18,14 @@ vxInput.addEventListener('input', () => {
 });
 vyInput.addEventListener('input', () => {
     velocityInput[1] = Number(vyInput.value);
+});
+
+const axInput = document.querySelector('#axInput');
+const ayInput = document.querySelector('#ayInput');
+axInput.addEventListener('input', () => {
+    accelerationInput[0] = Number(axInput.value);
+});
+ayInput.addEventListener('input', () => {
+    accelerationInput[1] = Number(ayInput.value);
 });
 
