@@ -13,10 +13,10 @@ massUIInput.addEventListener('input',() => {
 const vxInput = document.querySelector('#vxInput');
 const vyInput = document.querySelector('#vyInput');
 vxInput.addEventListener('input', () => {
-    velocityInput[0] = Number(vxInput.value);
+    setVelocityWithinLimit(vxInput);
 });
 vyInput.addEventListener('input', () => {
-    velocityInput[1] = Number(vyInput.value);
+    setVelocityWithinLimit(vyInput);
 });
 
 const axInput = document.querySelector('#axInput');
@@ -33,4 +33,23 @@ const speedLimitUI = document.querySelector('#speedLimitUI')
 speedLimitUIInput.addEventListener('input',() => {
     speedLimitUI.innerHTML = speedLimitUIInput.value
     speedLimit = speedLimitUIInput.value
+
+    setVelocityWithinLimit(vxInput);
+    setVelocityWithinLimit(vyInput);
 });
+
+function setVelocityWithinLimit(velocityDOM) {
+    const velocity = Number(velocityDOM.value)
+
+    if (velocity <= speedLimit && velocity >= -speedLimit) {
+        velocityInput[0] = velocity;
+        return
+    }
+    if (velocity > speedLimit){
+        velocityDOM.value = speedLimit;
+        velocityInput[0] = speedLimit;
+    } else {
+        velocityDOM.value = -speedLimit;
+        velocityInput[0] = -speedLimit;
+    }
+}
